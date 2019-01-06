@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Avto_Delo_new_Web</title>
+    <link rel="stylesheet" href="~/css/animate.min.css">
+    <link rel="stylesheet" href="~/css/normalize.min.css">
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/js/popper.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/util.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+        <link rel="stylesheet" href="~/css/animate.min.css">
+        <link rel="stylesheet" href="~/css/normalize.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+        <script src="~/js/animatedModal.min.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/css/animate.min.css">
+        <link rel="stylesheet" href="~/css/normalize.min.css">
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" /><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    </environment>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar_new row">
+            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-2" style="padding-left: 4%">
+                <a id="demo01" href="#animatedModal"> <i class="fa fa-bars burger"></i></a>
+            </div>
+            <div id="animatedModal">
+                <!--THIS IS IMPORTANT! to close the modal, the class name has to match the name given on the ID -->
+                <div id="btn-close-modal" class="close-animatedModal">
+                    CLOSE MODAL
+                </div>
+
+                <div class="modal-content">
+                    <!--Your modal content goes here-->
+                </div>
+            </div>
+            <div class="col-md-8 col-sm-7 col-xs-10" style="text-align:left; padding-right:35px">
+                <img src="~/images/avtodelo4-249x41.png" style="padding-top:15px" />
+            </div>
+            <div class="col-md-3 col-sm-4 col-xs-12 infotext" style="text-align:center; padding-right:25px; padding-top:10px; padding-bottom:10px">
+                <div class="col-md-12 col-sm-12 col-xs-6"><p class="textnav">info@avtodelo.ru</p></div>
+                <div class="col-md-12 col-sm-12 col-xs-6"><p class="textnav">+7-999-888-87-66</p></div>
+            </div>
+            @*<div class="col-md-offset-10 col-md-2 col-sm-offset-9 col-sm-3 col-xs-6" style="text-align:center; padding-right:35px; padding-top:10px; padding-bottom:10px">
+            <p class="textnav">+7-999-888-87-66</p>
+        </div>*@
+        </div>
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Avto_Delo_new_Web</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; 2019 - Avto_Delo_new_Web</p>
+        </footer>
+    </div>
+
+    
+    
+    <script>
+
+        //demo 01
+        $("#demo01").animatedModal();
+        $(document).ready(function () {
+            $('.carousel').carousel({
+                interval: 6000
+            })
+        });
+    </script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
