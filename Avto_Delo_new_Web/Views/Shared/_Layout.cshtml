@@ -4,21 +4,33 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Avto_Delo_new_Web</title>
+
+    <link rel="stylesheet" href="~/owlcarousel/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/owlcarousel/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="~/css/animate.min.css">
     <link rel="stylesheet" href="~/css/normalize.min.css">
+    <link rel="stylesheet" href="~/css/drop.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
     <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/js/drop.js"></script>
+    <script src="~/js/jquery.min.js"></script>
     <script src="~/js/popper.min.js"></script>
+    <script src="~/js/jquery.menu-aim.js"></script>
     <script src="~/lib/bootstrap/dist/js/util.js"></script>
+    <link href="~/fonts/fontawesome/css/fontawesome.css" rel="stylesheet" />
     <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+
+
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.css" />
         <link rel="stylesheet" href="~/css/animate.min.css">
-        <link rel="stylesheet" href="~/css/normalize.min.css">
+        @*<link rel="stylesheet" href="~/css/normalize.min.css">*@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
-        <script src="~/js/animatedModal.min.js"></script>
+
     </environment>
     <environment exclude="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -28,21 +40,13 @@
     </environment>
 </head>
 <body>
+
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="navbar_new row">
             <div class="col-lg-1 col-md-1 col-sm-1 col-xs-2" style="padding-left: 4%">
                 <a id="demo01" href="#animatedModal"> <i class="fa fa-bars burger"></i></a>
             </div>
-            <div id="animatedModal">
-                <!--THIS IS IMPORTANT! to close the modal, the class name has to match the name given on the ID -->
-                <div id="btn-close-modal" class="close-animatedModal">
-                    CLOSE MODAL
-                </div>
 
-                <div class="modal-content">
-                    <!--Your modal content goes here-->
-                </div>
-            </div>
             <div class="col-md-8 col-sm-7 col-xs-10" style="text-align:left; padding-right:35px">
                 <img src="~/images/avtodelo4-249x41.png" style="padding-top:15px" />
             </div>
@@ -51,8 +55,8 @@
                 <div class="col-md-12 col-sm-12 col-xs-6"><p class="textnav">+7-999-888-87-66</p></div>
             </div>
             @*<div class="col-md-offset-10 col-md-2 col-sm-offset-9 col-sm-3 col-xs-6" style="text-align:center; padding-right:35px; padding-top:10px; padding-bottom:10px">
-            <p class="textnav">+7-999-888-87-66</p>
-        </div>*@
+                    <p class="textnav">+7-999-888-87-66</p>
+                </div>*@
         </div>
         <div class="container">
             <div class="navbar-header">
@@ -76,23 +80,77 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
+        <div id="animatedModal">
+            <!--THIS IS IMPORTANT! to close the modal, the class name has to match the name given on the ID -->
+            <div id="btn-close-modal" class="close-animatedModal">
+                CLOSE MODAL
+            </div>
+
+            <div class="modal-content">
+                <!--Your modal content goes here-->
+            </div>
+        </div>
         <footer>
             <p>&copy; 2019 - Avto_Delo_new_Web</p>
         </footer>
     </div>
 
-    
-    
+  
+    <script src="~/owlcarousel/js/owl.carousel.min.js"></script>
+    <script src="~/owlcarousel/js/owl.animate.js"></script>
+    <script src="~/owlcarousel/js/owl.autoheight.js"></script>
+    <script src="~/owlcarousel/js/owl.autoplay.js"></script>
+    <script src="~/owlcarousel/js/owl.navigation.js"></script>
+    <script src="~/owlcarousel/js/owl.video.js"></script>
+
+    <script src="~/js/animatedModal.min.js"></script>
+
     <script>
 
         //demo 01
         $("#demo01").animatedModal();
+    </script>
+
+    <script>
         $(document).ready(function () {
-            $('.carousel').carousel({
-                interval: 6000
+            $('.owl-carousel').owlCarousel({
+                loop: true,
+                margin: 10,
+                nav: true,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 1
+                    },
+                    1000: {
+                        items: 1
+                    }
+                }
             })
         });
+
+            //$(document).ready(function () {
+            //    $('.owl-carousel').owlCarousel({
+            //        loop: true,
+            //        margin: 10,
+            //        nav: true,
+            //        responsive: {
+            //            0: {
+            //                items: 1
+            //            },
+            //            600: {
+            //                items: 3
+            //            },
+            //            1000: {
+            //                items: 4
+            //            }
+            //        }
+            //    })
+            //});
     </script>
+
 
     @RenderSection("Scripts", required: false)
 </body>
